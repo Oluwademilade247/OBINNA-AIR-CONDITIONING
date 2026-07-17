@@ -93,8 +93,14 @@ section{padding:100px 0;}
   position:fixed;inset:0;z-index:9999;background:var(--c-primary);
   display:flex;align-items:center;justify-content:center;
   transition:opacity .6s var(--ease), visibility .6s var(--ease);
+  /* CSS-only fallback: hides itself even if script.js fails to load or run */
+  animation:loaderAutoHide .6s var(--ease) forwards;
+  animation-delay:1.6s;
 }
 #loader.hide{opacity:0;visibility:hidden;}
+@keyframes loaderAutoHide{
+  to{opacity:0;visibility:hidden;pointer-events:none;}
+}
 .loader-mark{position:relative;width:64px;height:64px;}
 .loader-mark span{
   position:absolute;inset:0;border-radius:50%;border:3px solid rgba(58,190,255,.2);
@@ -365,11 +371,4 @@ section{padding:100px 0;}
   display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-head);font-weight:700;font-size:15px;flex-shrink:0;
 }
 .reviewer strong{display:block;font-size:14px;color:var(--c-primary);}
-.reviewer span{font-size:12.5px;color:var(--c-text-soft);}
-
-/* ---------- FAQ ---------- */
-.faq-cats{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;}
-.faq-list{max-width:820px;}
-.faq-item{border-bottom:1px solid var(--c-line);}
-.faq-q{
- 
+.review
